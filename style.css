@@ -1,11 +1,11 @@
 header {
   color: white;
-  padding: 3%;
-  font-size: 70px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7cL2MVudFeP5lG07_CdtiesDj-55L4N2Y7A&s);
+  background-repeat: repeat;
 }
 .ps {
   text-align: right;
@@ -30,7 +30,11 @@ footer {
   text-align: center;
   background-color: black;
   color: aliceblue;
-  padding: 4%;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .class {
@@ -52,11 +56,13 @@ h1 {
 }
 
 .contact-info {
-  padding: 0px;
+  padding: 5px;
   margin-top: 20px;
 }
 body {
+  position: relative;
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxUH6ny1UdvY4I76-JCLZcj9_Xdegk6P2pEQ&s);
+  overflow: hidden;
 }
 nav {
   margin-left: 0;
@@ -71,20 +77,27 @@ main {
 }
 .ima1 {
   color: black;
+
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEdYLmQ7chkWU9LAO5tXfGLI42Eq7-wW8EFw&s);
 }
 .ima2 {
   color: white;
+  height: 110px;
+
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEZaSrpALBNHS2jPAzoktnyQn-vsIdiZWNGw&s);
 }
 .ima3 {
+  height: 110px;
+
   background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-creative-ocean-world-aquarium-promotional-display-board-background-template-image_165088.jpg);
 }
 .ima4 {
+  width: 700px;
   color: white;
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSepLyBHhN4xF-t6heyM43F___XUAV2pD4Kaw&s);
 }
 .ima5 {
+  width: 700px;
   color: rgb(255, 255, 5);
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCVhQbk6LXThL5L6PShi1r_4LGpt3giZT1ow&s);
 }
