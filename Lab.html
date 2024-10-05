@@ -60,14 +60,89 @@
       flex-direction: column;
       background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b7611tktnu3pddzs6zmlhvqxqjg1c4dn6aac42e3y5m3h&ep=v1_gifs_search&rid=giphy.webp&ct=g);
     }
+
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        display: flex;
+        justify-content: end;
+      }
+
+      
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+    
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+    
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+    </style>
+  
+
   </style>
   <body>
     <header>
       <h1>Menu Tab</h1>
-      <div class="container">
-        <a href="#Lab3.html" class="box">Lab3</a>
-        <a href="#Lab2.html" class="box">Lab2</a>
-        <a href="#Lab1.html" class="box">Lab1</a>
+  
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')">
+          Lab1
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Lab2</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Lab3</button>
+      </div>
+  
+      <div id="London" class="tabcontent">
+        <h3>Trống</h3>
+      </div>
+  
+      <div id="Paris" class="tabcontent">
+        <h3>Trống</h3>
+        
+      </div>
+  
+      <div id="Tokyo" class="tabcontent">
+        <h3>Trống</h3>
+       
+      </div>
+  
+      <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+      </script>
       </div>
     </header>
     <main></main>
