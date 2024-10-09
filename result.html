@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submission Results</title>
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <div class="result-container">
+      <h2>Submission Results</h2>
+      <p id="status">Status: Success</p>
+      <p id="score">Score: 80%</p>
+      <p id="timeTaken">Time Taken: 1.5s</p>
+      <p id="memoryUsed">Memory Used: 512KB</p>
+
+      <h3>Test Case Results</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Input</th>
+            <th>Expected Output</th>
+            <th>Actual Output</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="testCaseResults">
+          <!-- Test case results will be populated here -->
+        </tbody>
+      </table>
+
+      <button onclick="tryAgain()">Try Again</button>
+      <button onclick="returnToDashboard()">Return to Dashboard</button>
+    </div>
+
+    <script>
+      let attemptCount = 0;
+
+      function tryAgain() {
+        attemptCount++;
+        loadResults();
+      }
+
+      function returnToDashboard() {
+        window.location.href = "dashboard.html";
+      }
+
+      // Populate the result table with dynamically retrieved data
+      function loadResults() {
+        // Example data for each attempt
+        const submissionResults = [
+          {
+            status: "Success",
+            score: "80%",
+            timeTaken: "1.5s",
+            memoryUsed: "512KB",
+          },
+          {
+            status: "Success",
+            score: "100%",
+            timeTaken: "1.0s",
+            memoryUsed: "480KB",
+          },
+          {
+            status: "Failed",
+            score: "60%",
+            timeTaken: "2.0s",
+            memoryUsed: "600KB",
+          },
+          {
+            status: "Success",
+            score: "90%",
+            timeTaken: "1.2s",
+            memoryUsed: "500KB",
+          },
+          {
+            status: "Failed",
+            score: "50%",
+            timeTaken: "2.5s",
+            memoryUsed: "650KB",
+          },
+          {
+            status: "Success",
+            score: "70%",
+            timeTaken: "1.8s",
+            memoryUsed: "550KB",
+          },
+        ];
+
+        const results = [
+          [
+            { input: "2", expected: "4", actual: "4", status: "Passed" },
+            { input: "3", expected: "6", actual: "6", status: "Passed" },
+            { input: "5", expected: "10", actual: "11", status: "Failed" },
+          ],
+          [
+            { input: "1", expected: "1", actual: "1", status: "Passed" },
+            { input: "4", expected: "8", actual: "8", status: "Passed" },
+            { input: "7", expected: "14", actual: "15", status: "Failed" },
+          ],
+          [
+            { input: "10", expected: "20", actual: "20", status: "Passed" },
+            { input: "8", expected: "16", actual: "16", status: "Passed" },
+            { input: "3", expected: "6", actual: "5", status: "Failed" },
+          ],
+          [
+            { input: "6", expected: "12", actual: "12", status: "Passed" },
+            { input: "9", expected: "18", actual: "19", status: "Failed" },
+            { input: "0", expected: "0", actual: "0", status: "Passed" },
+          ],
+          [
+            { input: "11", expected: "22", actual: "22", status: "Passed" },
+            { input: "15", expected: "30", actual: "29", status: "Failed" },
+            { input: "12", expected: "24", actual: "24", status: "Passed" },
+          ],
+          [
+            { input: "4", expected: "8", actual: "7", status: "Failed" },
+            { input: "2", expected: "4", actual: "4", status: "Passed" },
+            { input: "5", expected: "10", actual: "9", status: "Failed" },
+          ],
+        ];
+
+        // Clear previous results
+        const testCaseResults = document.getElementById("testCaseResults");
+        testCaseResults.innerHTML = "";
+
+        // Populate the table with test results for the current attempt
+        if (attemptCount <= results.length) {
+          // Update submission result info
+          const submissionResult = submissionResults[attemptCount - 1];
+          document.getElementById(
+            "status"
+          ).innerText = `Status: ${submissionResult.status}`;
+          document.getElementById(
+            "score"
+          ).innerText = `Score: ${submissionResult.score}`;
+          document.getElementById(
+            "timeTaken"
+          ).innerText = `Time Taken: ${submissionResult.timeTaken}`;
+          document.getElementById(
+            "memoryUsed"
+          ).innerText = `Memory Used: ${submissionResult.memoryUsed}`;
+
+          results[attemptCount - 1].forEach((result) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                        <td>${result.input}</td>
+                        <td>${result.expected}</td>
+                        <td>${result.actual}</td>
+                        <td>${result.status}</td>
+                    `;
+            testCaseResults.appendChild(row);
+          });
+        } else {
+          alert("No more attempts available.");
+          document.querySelector(
+            'button[onclick="tryAgain()"]'
+          ).disabled = true;
+        }
+
+        // Optionally, you can log the submitted code or other info
+        const code = localStorage.getItem("submittedCode");
+        console.log("Code submitted:", code);
+      }
+
+      window.onload = loadResults;
+    </script>
+  </body>
+</html>

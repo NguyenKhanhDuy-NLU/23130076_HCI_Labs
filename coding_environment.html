@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Environment</title>
+    <link rel="stylesheet" href="style1.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css"
+    />
+  </head>
+  <body>
+    <div class="coding-environment">
+      <h2 id="exerciseTitle"></h2>
+      <p id="exerciseDescription"></p>
+
+      <label for="languageSelector">Choose Language:</label>
+      <select id="languageSelector" onchange="changeLanguage()">
+        <option value="c">C</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+      </select>
+
+      <textarea id="codeEditor"></textarea>
+
+      <h3>Test Cases</h3>
+      <div id="testCases"></div>
+
+      <button onclick="runCode()">Run Code</button>
+      <button onclick="clearCode()">Clear Code</button>
+      <button onclick="submitCode()">Submit Code</button>
+      <button onclick="getHint()">Hint</button>
+      <p id="hintMessage"></p>
+    </div>
+
+    <script>
+      let editor;
+
+      function initializeEditor() {
+        editor = CodeMirror.fromTextArea(
+          document.getElementById("codeEditor"),
+          {
+            lineNumbers: true,
+            mode: "text/x-csrc",
+            theme: "default",
+            autoCloseBrackets: true,
+          }
+        );
+
+        loadExerciseDetails();
+      }
+
+      function loadExerciseDetails() {
+        const selectedExercise = localStorage.getItem("selectedExercise");
+        const exercise = exercises.find((ex) => ex.title === selectedExercise);
+
+        if (exercise) {
+          document.getElementById("exerciseTitle").textContent = exercise.title;
+          document.getElementById("exerciseDescription").textContent =
+            exercise.description;
+        }
+      }
+
+      function runCode() {
+        const code = editor.getValue();
+        console.log("Running code:", code);
+        localStorage.setItem("submittedCode", code);
+        window.location.href = "result.html";
+      }
+
+      function clearCode() {
+        editor.setValue("");
+      }
+
+      function getHint() {
+        document.getElementById("hintMessage").textContent =
+          "If you don't know how to do it, ask your friends, teachers or you can use support tools like GPT chat.";
+      }
+
+      window.onload = initializeEditor;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="vi" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <h1>Dashboard</h1>
+      <h2>Available exercises</h2>
+
+      <div class="filter-container">
+        <label for="languageFilter">Select language:</label>
+        <select id="languageFilter" onchange="filterExercises()">
+          <option value="all">All</option>
+          <option value="C">C</option>
+          <option value="Python">Python</option>
+          <option value="Java">Java</option>
+        </select>
+
+        <label for="searchBar">Filter posts by language:</label>
+        <input
+          type="text"
+          id="searchBar"
+          onkeyup="filterExercises()"
+          placeholder="Search exercise..."
+        />
+      </div>
+
+      <div id="exerciseList"></div>
+
+      <script>
+        const exercises = [
+          {
+            title: "I/O ",
+            description: "Learn how to handle input/output in C.",
+            language: "C",
+            difficulty: "Easy",
+            timeLimit: "45 minutes",
+            points: 95,
+            status: "Not Started",
+          },
+          {
+            title: "Data Structures",
+            description: "Work with lists and dictionaries in Python.",
+            language: "Python",
+            difficulty: "Medium",
+            timeLimit: "2 hours",
+            points: 100,
+            status: "In Progress",
+          },
+          {
+            title: "OOP Concepts",
+            description: "Understand classes and objects in Java.",
+            language: "Java",
+            difficulty: "Hard",
+            timeLimit: "1 day",
+            points: 90,
+            status: "Completed",
+          },
+        ];
+        function filterExercises() {
+          const language = document.getElementById("languageFilter").value;
+          const keyword = document
+            .getElementById("searchBar")
+            .value.toLowerCase();
+          const exerciseList = document.getElementById("exerciseList");
+
+          exerciseList.innerHTML = "";
+
+          exercises.forEach((exercise) => {
+            if (
+              (language === "all" || exercise.language === language) &&
+              (exercise.title.toLowerCase().includes(keyword) ||
+                exercise.description.toLowerCase().includes(keyword))
+            ) {
+              const exerciseDiv = document.createElement("div");
+              exerciseDiv.classList.add("exercise");
+              exerciseDiv.innerHTML = `
+        <h4>${exercise.title}</h4>
+        <span class="status-badge">${exercise.status}</span>
+        <p>${exercise.description}</p>
+        <p>Difficulty: ${exercise.difficulty}</p>
+        <p>Time Limit: ${exercise.timeLimit}</p>
+        <p>Points: ${exercise.points}</p>
+        <button onclick="startExercise('${exercise.title}')">Select an exercise</button>
+        <button onclick="viewExerciseDetails('${exercise.title}')">View Exercise Details</button>
+      `;
+              exerciseList.appendChild(exerciseDiv);
+            }
+          });
+        }
+
+        function viewExerciseDetails(title) {
+          const exercise = exercises.find((ex) => ex.title === title);
+          if (exercise) {
+            alert(
+              `Title: ${exercise.title}\n` +
+                `Status: ${exercise.status}\n` +
+                `Description: ${exercise.description}\n` +
+                `Difficulty: ${exercise.difficulty}\n` +
+                `Time Limit: ${exercise.timeLimit}\n` +
+                `Points: ${exercise.points}`
+            );
+          }
+        }
+
+        function startExercise(title) {
+          localStorage.setItem("selectedExercise", title);
+          window.location.href = "coding_environment.html";
+        }
+
+        window.onload = filterExercises;
+      </script>
+    </div>
+  </body>
+</html>
