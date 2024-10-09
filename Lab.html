@@ -4,73 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab</title>
-  </head>
-  <style>
-    .box {
-      margin: 5px;
-      padding: 10px;
-      border: 1px solid #000;
-      background-color: yellow;
-      text-decoration: none;
-      color: black;
-      font-weight: 900;
-      border-radius: 5px;
-    }
-    .container {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    h1 {
-      font-weight: bold;
-      font-size: 50px;
-      font-style: italic;
-      text-align: center;
-    }
-    header {
-      background-image: url(https://media2.giphy.com/media/PmRThUxw2apDkaDBvK/giphy.webp?cid=ecf05e471j9dx1v5dr06tgvn9beg4gf3dvoeyrg9teb70aqy&ep=v1_gifs_search&rid=giphy.webp&ct=g);
-      width: 100%;
-      color: black;
-    }
-    footer {
-      margin-bottom: 1px;
-      text-align: center;
-      background-image: url(https://media2.giphy.com/media/PmRThUxw2apDkaDBvK/giphy.webp?cid=ecf05e471j9dx1v5dr06tgvn9beg4gf3dvoeyrg9teb70aqy&ep=v1_gifs_search&rid=giphy.webp&ct=g);
-      color: black;
-      font-size: 15px;
-      padding: 5px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    main {
-      position: relative;
-      height: 70vh;
-      overflow: hidden;
-    }
-
-    main img {
-      position: absolute;
-      width: 90%;
-      height: 90%;
-      object-fit: cover;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b7611tktnu3pddzs6zmlhvqxqjg1c4dn6aac42e3y5m3h&ep=v1_gifs_search&rid=giphy.webp&ct=g);
-    }
-
-    .tab {
+    <style>
+      .box {
+        margin: 5px;
+        padding: 10px;
+        border: 1px solid #000;
+        background-color: yellow;
+        text-decoration: none;
+        color: black;
+        font-weight: 900;
+        border-radius: 5px;
+      }
+      .container {
+        display: flex;
+        justify-content: flex-end;
+      }
+      h1 {
+        font-weight: bold;
+        font-size: 50px;
+        font-style: italic;
+        text-align: center;
+      }
+      header {
+        background-image: url(https://media2.giphy.com/media/PmRThUxw2apDkaDBvK/giphy.webp?cid=ecf05e471j9dx1v5dr06tgvn9beg4gf3dvoeyrg9teb70aqy&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+        width: 100%;
+        color: black;
+      }
+      footer {
+        margin-bottom: 1px;
+        text-align: center;
+        background-image: url(https://media2.giphy.com/media/PmRThUxw2apDkaDBvK/giphy.webp?cid=ecf05e471j9dx1v5dr06tgvn9beg4gf3dvoeyrg9teb70aqy&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+        color: black;
+        font-size: 15px;
+        padding: 5px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      main {
+        position: relative;
+        height: 70vh;
+        overflow: hidden;
+      }
+      main img {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b7611tktnu3pddzs6zmlhvqxqjg1c4dn6aac42e3y5m3h&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+      }
+      .tab {
         overflow: hidden;
         border: 1px solid #ccc;
         background-color: #f1f1f1;
         display: flex;
         justify-content: end;
       }
-
-      
-      .tab button {
+      .tab button,
+      .tab a {
         background-color: inherit;
         float: left;
         border: none;
@@ -79,19 +74,16 @@
         padding: 14px 16px;
         transition: 0.3s;
         font-size: 17px;
+        text-decoration: none; /* remove underline from links */
+        color: inherit; /* inherit color from parent */
       }
-
-    
-      .tab button:hover {
+      .tab button:hover,
+      .tab a:hover {
         background-color: #ddd;
       }
-
-    
       .tab button.active {
         background-color: #ccc;
       }
-
-      /* Style the tab content */
       .tabcontent {
         display: none;
         padding: 6px 12px;
@@ -99,49 +91,23 @@
         border-top: none;
       }
     </style>
-  
-
-  </style>
+  </head>
   <body>
     <header>
       <h1>Menu Tab</h1>
-  
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'London')">
-          Lab1
-        </button>
-        <button class="tablinks" onclick="openCity(event, 'Paris')">Lab2</button>
-        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Lab3</button>
+        <a href="Lab1.html" class="tablinks">Lab1</a>
+        <a href="Lab2.html" class="tablinks">Lab2</a>
+        <a href="Lab3.html" class="tablinks">Lab3</a>
       </div>
-  
       <div id="Lab1" class="tabcontent">
-       <a href="Lab1.html"></a>
+        <a href="Lab1.html">Go to Lab 1</a>
       </div>
-  
       <div id="Lab2" class="tabcontent">
-      <a href="Lab2.html"></a>
-        
+        <a href="Lab2.html">Go to Lab 2</a>
       </div>
-  
       <div id="Lab3" class="tabcontent">
-       <a href="Lab3.html"></a>
-      </div>
-  
-      <script>
-        function openCity(evt, cityName) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-      </script>
+        <a href="Lab3.html">Go to Lab 3</a>
       </div>
     </header>
     <main></main>
@@ -150,8 +116,7 @@
       <a href="https://www.facebook.com/duy.nguyenkhanh.9279807/about_overview"
         >Facebook</a
       >
-      |
-      <a href="Zalo">Zalo</a> |
+      | <a href="Zalo">Zalo</a> |
       <a href="index.html">Home</a>
     </footer>
   </body>
