@@ -30,7 +30,10 @@ footer {
   background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b761136conav066tkccl91o2posqsi8a9pwaq476w7pka&ep=v1_gifs_search&rid=giphy.webp&ct=g);
   color: aliceblue;
   padding: 5px;
-font-size: 15px
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 15px;
 }
 
 .class {
@@ -56,11 +59,8 @@ h1 {
   margin-top: 20px;
 }
 body {
-  flex-direction: column;
-  height: 100%;
-  margin: 0;
   position: relative;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnSAWRoiiltVlp-3CU99FrAtVkY-LOgvg8yQ&s);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnSAWRoiiltVlp-3CU99FrAtVkY-LOgvg8yQ&shttps://media3.giphy.com/media/gKncmZtoUiAcQxPvap/giphy.webp?cid=ecf05e47lcxemawjb93bkhbqcjod1asyo0r9kd10efosh1cx&ep=v1_gifs_search&rid=giphy.webp&ct=g);
   overflow: hidden;
 }
 body img {
@@ -74,7 +74,6 @@ section {
   margin-left: 15px;
 }
 main {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
