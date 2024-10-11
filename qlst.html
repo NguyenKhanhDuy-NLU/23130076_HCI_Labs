@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoo Management</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        position: relative;
+      }
+      header {
+        background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b761136conav066tkccl91o2posqsi8a9pwaq476w7pka&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 40px;
+        font-style: italic;
+        margin: 0;
+        text-align: center;
+      }
+
+      .tab {
+        display: flex;
+        justify-content: center;
+        background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b761136conav066tkccl91o2posqsi8a9pwaq476w7pka&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+        padding: 10px 0;
+        position: sticky;
+        top: 80px;
+        z-index: 999;
+      }
+
+      .tab a {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        position: relative;
+      }
+
+      .tab a:hover {
+        background-color: yellowgreen;
+      }
+
+      .tab a.active {
+        background-color: green;
+      }
+
+      main {
+        flex: 1;
+        padding: 40px;
+        background-color: #e8f8f5;
+      }
+
+      .carousel {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .carousel-item {
+        min-width: 100%;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+      }
+
+      .carousel-controls button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50%;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .carousel-controls button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
+      }
+
+      .content-section {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .content-section h2 {
+        font-size: 40px;
+        color: blue;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-section p {
+        font-size: 18px;
+        color: #555;
+        margin: 0 10px 30px;
+        line-height: 1.6;
+      }
+
+      footer {
+        background-image: url(https://media3.giphy.com/media/U3qYN8S0j3bpK/giphy.webp?cid=790b761136conav066tkccl91o2posqsi8a9pwaq476w7pka&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+        text-align: center;
+        color: white;
+        padding: 20px 0;
+        font-size: 16px;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZrqi0e7Zj7eLwFRGtyBoqXQORIctUHK2MqQ&s"
+        alt="Zoo Logo"
+        width="75"
+        height="75"
+      />
+      <h1>Zoo Management</h1>
+    </header>
+
+    <div class="tab">
+      <a href="qlst.html" class="tablinks active">Trang chủ</a>
+      <a href="#" class="tablinks">Nhân viên</a>
+      <a href="#" class="tablinks">Động vật</a>
+      <a href="#" class="tablinks">Quản lý</a>
+      <a href="#" class="tablinks">Liên hệ</a>
+    </div>
+
+    <main>
+      <div class="carousel">
+        <div class="carousel-inner" id="carousel-inner">
+          <div class="carousel-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOc5HouKef50Dvv4j6k1erFVr7HaPlxMgSJw&s"
+              alt="Panda"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTei09kCPfNUwNgZJJbx8fZ5mjZ4q9NW5bzlg&s"
+              alt="Tiger"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_romwRD-mTaqngTrNPq7Uom9Lq4WzhgyFvg&s"
+              alt="Capybara"
+            />
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button id="prevBtn">&#10094;</button>
+          <button id="nextBtn">&#10095;</button>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Chào mừng đến với Sở Thú của chúng tôi</h2>
+      </div>
+    </main>
+
+    <footer>
+      <p>@ Nguyễn Khánh Duy</p>
+      <a href="https://www.facebook.com/duy.nguyenkhanh.9279807/about_overview"
+        >Facebook</a
+      >
+      | <a href="Zalo">Zalo</a>
+    </footer>
+
+    <script>
+      const carouselInner = document.getElementById("carousel-inner");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const items = document.querySelectorAll(".carousel-item");
+        const totalItems = items.length;
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % 3;
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + 3) % 3;
+        updateCarousel();
+      });
+    </script>
+  </body>
+</html>
