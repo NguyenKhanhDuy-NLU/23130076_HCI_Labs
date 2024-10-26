@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style4.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
@@ -61,9 +63,7 @@
       </div>
       <div>
         <div class="tab-menu">
-          <span class="search-icon"> <i class="fas fa-search"> </i></span>
-          
-          <div class="tab" onclick="activateTab(this)">Overview</div>
+          <div class="tab" onclick="activateTab(event, 'tab1')">Overview</div>
           <div class="tab" onclick="activateTab(this)">Q&A</div>
           <div class="tab" onclick="activateTab(this)">Notes</div>
           <div class="tab" onclick="activateTab(this)">Announcements</div>
@@ -187,34 +187,37 @@
               <input type="checkbox" id="lesson-4" />
               <label for="lesson-4">
                 <span class="line-in4">4. Course resources & documents</span>
-                <span class="i">1min</span>
-                
+                <span class="i2">1min 
+                  <div class="resources-btn">  <i class="fa-solid fa-folder-open"></i>Resources <div style="margin-left: 10px;">
+                    <i class="fas fa-angle-down"></i>
+                  </div> 
+                </div>
+                </span>
               </label>
             </div>
           </div>
-          
     <div class="dropdown1">
       <div class="dropdown1-select">
         <span class="line1-in4"> Section2: Mule 4 installation set-up </span>
  <div><p class="i2"> 0 / 2 | 21min</p></div></div>
-      <div class="dropdown1-content">
-        <div><a href="#"></a>1.  </div>
-        <div><a href="#"></a>2.  </div>
-      </div>
+ <div class="dropdown1-content">
+ <div><a href="#"></a>1.  </div>
+ <div><a href="#"></a>2.  </div>
     </div>
+  </div>
     <div class="dropdown1">
       <div class="dropdown1-select">
         <span class="line1-in4"> Section 3: Mule basics - develop first mule app, run, debug, export & import mule app </span>
  <div><p class="i2"> 0 / 7 | 42min</p></div></div>
-      <div class="dropdown1-content">
-        <div><a href="#"></a>1.  </div>
-        <div><a href="#"></a>2.  </div>
-        <div><a href="#"></a>3.  </div>
-        <div><a href="#"></a>4.  </div>
-        <div><a href="#"></a>5.  </div>
-        <div><a href="#"></a>6.  </div>
-        <div><a href="#"></a>7.  </div>
-      </div>
+ <div class="dropdown1-content">
+ <div><a href="#"></a>1.  </div>
+ <div><a href="#"></a>2.  </div>
+ <div><a href="#"></a>3.  </div>
+ <div><a href="#"></a>4.  </div>
+ <div><a href="#"></a>5.  </div>
+ <div><a href="#"></a>6.  </div>
+ <div><a href="#"></a>7.  </div>
+    </div>
     </div>
     <div class="dropdown1">
       <div class="dropdown1-select">
@@ -366,11 +369,11 @@
       </div>
     </div>
     </div>
-    <div>
-      <button id="movableButton"><i class="fas fa-folder"></i> Resources &#9662;</button>
-    </div>
+    
     </main>
     </div>
+    
+
     <script>
       function activateTab(tab) {
         const tabs = document.querySelectorAll(".tab");
@@ -378,33 +381,6 @@
         tab.classList.add("tab-active");
       }
     </script>
-    <script>
-      const button = document.getElementById("movableButton");
-let isDragging = false;
-let offsetX, offsetY;
-
-button.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    offsetX = e.clientX - button.getBoundingClientRect().left;
-    offsetY = e.clientY - button.getBoundingClientRect().top;
-    button.style.cursor = "grabbing"; // Thay đổi con trỏ
-});
-
-document.addEventListener("mouseup", () => {
-    isDragging = false;
-    button.style.cursor = "grab"; // Quay lại con trỏ ban đầu
-});
-
-document.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-        const x = e.clientX - offsetX;
-        const y = e.clientY - offsetY;
-
-        button.style.left = `${x}px`;
-        button.style.top = `${y}px`;
-    }
-});
-
-    </script>
+  
   </body>
 </html>
