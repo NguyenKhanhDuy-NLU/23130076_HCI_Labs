@@ -13,7 +13,21 @@
       src="https://kit.fontawesome.com/e6d841051d.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      #draggableButton {
+        position: absolute;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        user-select: none;
+      }
+    </style>
   </head>
+  
   <body>
     <div class="container mt-4">
       <div class="category-filter-container">
@@ -68,6 +82,8 @@
           </button>
         </div>
       </div>
+      <button id="draggableButton" onclick="redirectToLab()">Lab</button>
+
       <div class="row mt-4">
         <!-- Course Card 1 -->
         <div class="col-12 col-sm-6 col-md-3 course-card-container">
@@ -267,6 +283,33 @@
       function closePopup() {
         document.getElementById("popupBox").style.display = "none";
       }
+    </script>
+    <script>
+      let button = document.getElementById("draggableButton");
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      function redirectToLab() {
+        window.location.href = "Lab.html";
+      }
+
+      button.addEventListener("mousedown", function (e) {
+        isDragging = true;
+
+        offsetX = e.clientX - button.getBoundingClientRect().left;
+        offsetY = e.clientY - button.getBoundingClientRect().top;
+      });
+
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          button.style.left = e.clientX - offsetX + "px";
+          button.style.top = e.clientY - offsetY + "px";
+        }
+      });
+
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+      });
     </script>
   </body>
 </html>
