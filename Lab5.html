@@ -14,6 +14,50 @@
 
   <body>
     <main>
+       <div class="dropdown3 draggable" id="myDropdown">
+      <button onclick="toggleDropdown()">Lab</button>
+      <div class="dropdown3-content">
+        <a href="Lab1.html">Lab 1</a>
+        <a href="Lab2.html">Lab 2</a>
+        <a href="Lab3.html">Lab 3</a>
+        <a href="Lab4.html">Lab 4</a>
+        <a href="Lab5.html">Lab 5</a>
+        <a href="Lab6.html">Lab 6</a>
+      </div>
+    </div>
+
+    <script>
+      function toggleDropdown() {
+        var dropdownContent = document.querySelector(".dropdown3-content");
+        dropdownContent.style.display =
+          dropdownContent.style.display === "block" ? "none" : "block";
+      }
+
+      var isDragging = false;
+      var offsetX, offsetY;
+
+      document
+        .getElementById("myDropdown")
+        .addEventListener("mousedown", function (e) {
+          isDragging = true;
+          offsetX = e.clientX - this.getBoundingClientRect().left;
+          offsetY = e.clientY - this.getBoundingClientRect().top;
+          this.classList.add("draggable");
+        });
+
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          var dropdown = document.getElementById("myDropdown");
+          dropdown.style.left = e.clientX - offsetX + "px";
+          dropdown.style.top = e.clientY - offsetY + "px";
+        }
+      });
+
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+        document.getElementById("myDropdown").classList.remove("draggable");
+      });
+    </script>
       <div class="he">
         <div class="line1">My learning</div>
         <span class="line2">
@@ -364,50 +408,7 @@ You currently have no discussion forum
         </div>
       
     </main>
-     <div class="dropdown3 draggable" id="myDropdown">
-      <button onclick="toggleDropdown()">Lab</button>
-      <div class="dropdown3-content">
-        <a href="Lab1.html">Lab 1</a>
-        <a href="Lab2.html">Lab 2</a>
-        <a href="Lab3.html">Lab 3</a>
-        <a href="Lab4.html">Lab 4</a>
-        <a href="Lab5.html">Lab 5</a>
-        <a href="Lab6.html">Lab 6</a>
-      </div>
-    </div>
-
-    <script>
-      function toggleDropdown() {
-        var dropdownContent = document.querySelector(".dropdown3-content");
-        dropdownContent.style.display =
-          dropdownContent.style.display === "block" ? "none" : "block";
-      }
-
-      var isDragging = false;
-      var offsetX, offsetY;
-
-      document
-        .getElementById("myDropdown")
-        .addEventListener("mousedown", function (e) {
-          isDragging = true;
-          offsetX = e.clientX - this.getBoundingClientRect().left;
-          offsetY = e.clientY - this.getBoundingClientRect().top;
-          this.classList.add("draggable");
-        });
-
-      document.addEventListener("mousemove", function (e) {
-        if (isDragging) {
-          var dropdown = document.getElementById("myDropdown");
-          dropdown.style.left = e.clientX - offsetX + "px";
-          dropdown.style.top = e.clientY - offsetY + "px";
-        }
-      });
-
-      document.addEventListener("mouseup", function () {
-        isDragging = false;
-        document.getElementById("myDropdown").classList.remove("draggable");
-      });
-    </script>
+    
   </body>
   <script>
     function openCity(evt, cityName) {
